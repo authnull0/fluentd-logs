@@ -1,14 +1,6 @@
 # fluentd-logs
-Download and install the fluentd
-
-
-Go to C:\opt\fluent\etc\fluent\ and replace the fluentd.conf content and save
-
-
-Start Flunetd Windows as a Service 
-
-
-open fluentd command prompt as an Administrator
-
-
-run the command - fluentd
+Click on the link below for Fluentd installation instructions in linux machine
+https://docs.fluentd.org/installation/install-by-deb
+Update the fluentd.conf 
+Run this command to start the fluentd 
+$sudo fluentd -c /etc/fluent/fluentd.conf
