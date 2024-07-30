@@ -7,6 +7,8 @@ https://docs.fluentd.org/installation/install-by-deb
 
 Update the fluentd.conf 
 
+Change the IP in the .conf to the IP of the linux machine
+
 
 Run this command to start the fluentd 
 
