@@ -1,0 +1,44 @@
+<source>
+  @type tail
+  path C:/Program Files/pGina/log/pGina.Service.ServiceHost_log.txt
+  pos_file C:/authnull-agent/fluentd/ldap.pos
+  tag windows-agent.log
+  <parse>
+    @type none
+  </parse>
+ <buffer>
+    @type memory
+    flush_interval 4m 
+    chunk_limit_size 10m
+    total_limit_size 100m
+  </buffer>
+</source>
+
+<filter windows-agent.log>
+  @type grep
+  <regexp>
+    key message
+    pattern /LdapPlugin: Found established TCP connection on port 3389 from IP:|LdapPlugin: Received username:|LdapPlugin: Authnull Authz Service CallAuthnull Method 1:|LdapPlugin: Authnull Service CallAuthnull Method 1:/
+  </regexp>
+</filter>
+
+<filter windows-agent.log>
+  @type concat
+  key message
+  n_lines 3
+</filter>
+
+<filter windows-agent.log>
+  @type record_transformer
+  enable_ruby true
+  <record>
+    orgId 84
+    tenantId 7
+    component "ldap-logs"
+      </record>
+</filter>
+
+<match windows-agent.log>
+  @type stdout
+</match>
+
