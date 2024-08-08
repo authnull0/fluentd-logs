@@ -37,6 +37,7 @@ flush_interval 180s
   <record>
     orgId 84
     tenantId 7
+    IP 172.212.108.129
     component "ldap-logs"
       </record>
 </filter>
