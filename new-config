@@ -6,13 +6,14 @@
   <parse>
     @type none
   </parse>
- <buffer>
-    @type memory
-    flush_interval 4m 
-    chunk_limit_size 10m
-    total_limit_size 100m
-  </buffer>
-</source>
+ </source>
+
+<label @PARTIAL>
+  <match **>
+    @type stdout
+  </match>
+</label>
+
 
 <filter windows-agent.log>
   @type grep
@@ -26,6 +27,8 @@
   @type concat
   key message
   n_lines 3
+flush_interval 300s
+  timeout_label @PARTIAL  # Label to handle partial logs
 </filter>
 
 <filter windows-agent.log>
@@ -40,5 +43,6 @@
 
 <match windows-agent.log>
   @type stdout
+	
 </match>
 
