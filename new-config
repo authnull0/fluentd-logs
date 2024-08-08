@@ -26,8 +26,8 @@
 <filter windows-agent.log>
   @type concat
   key message
-  n_lines 3
-flush_interval 300s
+  n_lines 4
+flush_interval 180s
   timeout_label @PARTIAL  # Label to handle partial logs
 </filter>
 
