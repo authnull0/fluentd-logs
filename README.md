@@ -13,4 +13,9 @@ Start Flunetd Windows as a Service
 open fluentd command prompt as an Administrator
 
 
+
+Install the plugin - gem install fluent-plugin-concat
+
+
+
 run the command - fluentd
